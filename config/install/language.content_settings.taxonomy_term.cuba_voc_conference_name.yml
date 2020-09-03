@@ -1,0 +1,17 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.cuba_voc_conference_name
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: taxonomy_term.cuba_voc_conference_name
+target_entity_type_id: taxonomy_term
+target_bundle: cuba_voc_conference_name
+default_langcode: site_default
+language_alterable: true

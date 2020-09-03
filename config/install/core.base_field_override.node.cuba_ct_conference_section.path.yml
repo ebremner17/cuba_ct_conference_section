@@ -1,0 +1,19 @@
+langcode: fr
+status: true
+dependencies:
+  config:
+    - node.type.cuba_ct_conference_section
+  module:
+    - path
+id: node.cuba_ct_conference_section.path
+field_name: path
+entity_type: node
+bundle: cuba_ct_conference_section
+label: 'URL alias'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

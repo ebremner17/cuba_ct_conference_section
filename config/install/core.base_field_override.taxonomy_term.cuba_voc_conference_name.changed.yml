@@ -1,0 +1,17 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.cuba_voc_conference_name
+id: taxonomy_term.cuba_voc_conference_name.changed
+field_name: changed
+entity_type: taxonomy_term
+bundle: cuba_voc_conference_name
+label: Changed
+description: 'The time that the term was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

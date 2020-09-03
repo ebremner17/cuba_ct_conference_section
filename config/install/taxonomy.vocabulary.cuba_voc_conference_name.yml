@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'Conference name'
+vid: cuba_voc_conference_name
+description: 'A conference name for a CUBA/ACCAU conference'
+weight: 0

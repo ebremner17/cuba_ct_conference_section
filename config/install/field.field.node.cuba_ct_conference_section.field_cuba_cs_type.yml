@@ -1,0 +1,36 @@
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cuba_cs_type
+    - node.type.cuba_ct_conference_section
+    - paragraphs.paragraphs_type.conference_pt_section_type
+  module:
+    - entity_reference_revisions
+id: node.cuba_ct_conference_section.field_cuba_cs_type
+field_name: field_cuba_cs_type
+entity_type: node
+bundle: cuba_ct_conference_section
+label: 'Conference section type'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      conference_pt_section_type: conference_pt_section_type
+    target_bundles_drag_drop:
+      conference_pt_section_type:
+        enabled: true
+        weight: 4
+      cuba_pt_copy_text:
+        weight: 5
+        enabled: false
+      cuba_pt_layout:
+        weight: 6
+        enabled: false
+field_type: entity_reference_revisions

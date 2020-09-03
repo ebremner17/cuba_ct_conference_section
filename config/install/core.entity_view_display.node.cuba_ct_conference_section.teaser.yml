@@ -1,0 +1,24 @@
+langcode: fr
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.cuba_ct_conference_section.field_cuba_cs_conference_name
+    - field.field.node.cuba_ct_conference_section.field_cuba_cs_type
+    - node.type.cuba_ct_conference_section
+  module:
+    - user
+id: node.cuba_ct_conference_section.teaser
+targetEntityType: node
+bundle: cuba_ct_conference_section
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_cuba_cs_conference_name: true
+  field_cuba_cs_type: true
+  langcode: true

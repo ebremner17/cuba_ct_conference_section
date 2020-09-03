@@ -1,0 +1,23 @@
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.conference_pt_section_type.field_cuba_cs_type
+    - paragraphs.paragraphs_type.conference_pt_section_type
+  module:
+    - layout_paragraphs
+id: paragraph.conference_pt_section_type.default
+targetEntityType: paragraph
+bundle: conference_pt_section_type
+mode: default
+content:
+  field_cuba_cs_type:
+    type: layout_paragraphs
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+hidden: {  }

@@ -1,0 +1,28 @@
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cuba_cs_conference_name
+    - node.type.cuba_ct_conference_section
+    - taxonomy.vocabulary.cuba_voc_conference_name
+id: node.cuba_ct_conference_section.field_cuba_cs_conference_name
+field_name: field_cuba_cs_conference_name
+entity_type: node
+bundle: cuba_ct_conference_section
+label: 'Conference name'
+description: 'Select a conference for this section to be a part of.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      cuba_voc_conference_name: cuba_voc_conference_name
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

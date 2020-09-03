@@ -1,0 +1,28 @@
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.field.node.cuba_ct_conference_section.field_cuba_cs_conference_name
+    - field.field.node.cuba_ct_conference_section.field_cuba_cs_type
+    - node.type.cuba_ct_conference_section
+  module:
+    - entity_reference_revisions
+    - user
+id: node.cuba_ct_conference_section.default
+targetEntityType: node
+bundle: cuba_ct_conference_section
+mode: default
+content:
+  field_cuba_cs_type:
+    type: entity_reference_revisions_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_cuba_cs_conference_name: true
+  langcode: true
+  links: true

@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_cuba_current_conference
+    - taxonomy.vocabulary.cuba_voc_conference_name
+id: taxonomy_term.cuba_voc_conference_name.field_cuba_current_conference
+field_name: field_cuba_current_conference
+entity_type: taxonomy_term
+bundle: cuba_voc_conference_name
+label: 'Current conference'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
