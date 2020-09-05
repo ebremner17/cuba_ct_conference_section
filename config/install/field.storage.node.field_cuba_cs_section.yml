@@ -1,12 +1,12 @@
-langcode: fr
+langcode: en
 status: true
 dependencies:
   module:
     - entity_reference_revisions
     - node
     - paragraphs
-id: node.field_cuba_cs_type
-field_name: field_cuba_cs_type
+id: node.field_cuba_cs_section
+field_name: field_cuba_cs_section
 entity_type: node
 type: entity_reference_revisions
 settings:

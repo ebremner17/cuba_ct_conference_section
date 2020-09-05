@@ -4,7 +4,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.cuba_ct_conference_section.field_cuba_cs_conference_name
-    - field.field.node.cuba_ct_conference_section.field_cuba_cs_type
+    - field.field.node.cuba_ct_conference_section.field_cuba_cs_section
     - node.type.cuba_ct_conference_section
   module:
     - user
@@ -20,5 +20,5 @@ content:
     region: content
 hidden:
   field_cuba_cs_conference_name: true
-  field_cuba_cs_type: true
+  field_cuba_cs_section: true
   langcode: true

@@ -3,7 +3,7 @@ status: true
 dependencies:
   config:
     - field.field.node.cuba_ct_conference_section.field_cuba_cs_conference_name
-    - field.field.node.cuba_ct_conference_section.field_cuba_cs_type
+    - field.field.node.cuba_ct_conference_section.field_cuba_cs_section
     - node.type.cuba_ct_conference_section
   module:
     - paragraphs
@@ -25,9 +25,9 @@ content:
     third_party_settings: {  }
     type: options_select
     region: content
-  field_cuba_cs_type:
+  field_cuba_cs_section:
     type: entity_reference_paragraphs
-    weight: 122
+    weight: 123
     settings:
       title: Paragraph
       title_plural: Paragraphs

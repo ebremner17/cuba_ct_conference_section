@@ -1,7 +1,7 @@
 name: 'Conference section'
 description: 'Provides Conference section content type and related configuration. A conference section for a CUBA/ACCAU conference.'
 type: module
-core: 8.x
+core_version_requirement: ^9
 dependencies:
   - content_translation
   - entity_reference_revisions
@@ -16,3 +16,5 @@ dependencies:
   - taxonomy
   - text
   - user
+  - cuba_paragraphs
+  - cuba_media

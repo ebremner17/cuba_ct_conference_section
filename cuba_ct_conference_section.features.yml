@@ -1,1 +1,3 @@
+excluded:
+  - paragraphs.paragraphs_type.cuba_pt_section
 required: true
