@@ -24,9 +24,6 @@ settings:
     target_bundles:
       cuba_pt_section: cuba_pt_section
     target_bundles_drag_drop:
-      conference_pt_section_type:
-        weight: 7
-        enabled: false
       cuba_pt_copy_text:
         weight: 8
         enabled: false
