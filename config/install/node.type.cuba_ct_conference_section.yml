@@ -5,8 +5,9 @@ dependencies:
     - menu_ui
 third_party_settings:
   menu_ui:
-    available_menus: {  }
-    parent: ''
+    available_menus:
+      - cuba-menu-conferences
+    parent: 'cuba-menu-conferences:'
 name: 'Conference section'
 type: cuba_ct_conference_section
 description: 'A conference section for a CUBA/ACCAU conference.'
