@@ -7,13 +7,10 @@ use Drupal\Core\Form\FormStateInterface;
  *
  * Update parent item based on conference name selection.
  */
-function cuba_ct_conference_section_form_alter(&$form, FormStateInterface $form_state) {
-
-  // Get the node.
-  $node = $form_state->getFormObject()->getEntity();
+function cuba_ct_conference_section_form_alter(&$form, FormStateInterface $form_state, $form_id) {
 
   // Ensure that we are on a conference section.
-  if ($node->getType() == 'cuba_ct_conference_section') {
+  if ($form_id == 'node_cuba_ct_conference_section_form') {
 
     // Add the ajax call to update the parent menu in menu settings.
     $form['field_cuba_cs_conference_name']['widget']['#ajax'] = [
@@ -26,6 +23,7 @@ function cuba_ct_conference_section_form_alter(&$form, FormStateInterface $form_
     $form['menu']['link']['menu_parent']['#prefix'] = '<div id="cuba-parent-menu-wrapper">';
     $form['menu']['link']['menu_parent']['#suffix'] = '</div>';
   }
+
 }
 
 /**
