@@ -10,6 +10,7 @@ dependencies:
   - field
   - language
   - layout_paragraphs
+  - menu_force
   - menu_ui
   - node
   - paragraphs
