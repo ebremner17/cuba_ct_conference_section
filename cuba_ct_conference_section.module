@@ -1,0 +1,72 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_alter() for \Drupal\node\NodeForm.
+ *
+ * Update parent item based on conference name selection.
+ */
+function cuba_ct_conference_section_form_alter(&$form, FormStateInterface $form_state) {
+
+  // Get the node.
+  $node = $form_state->getFormObject()->getEntity();
+
+  // Ensure that we are on a conference section.
+  if ($node->getType() == 'cuba_ct_conference_section') {
+
+    // Add the ajax call to update the parent menu in menu settings.
+    $form['field_cuba_cs_conference_name']['widget']['#ajax'] = [
+      'callback' => '_cuba_ct_conference_section_update_parent_menu',
+      'event' => 'change',
+      'wrapper' => 'cuba-parent-menu-wrapper',
+    ];
+
+    // Add the prefix and suffix so that our ajax works.
+    $form['menu']['link']['menu_parent']['#prefix'] = '<div id="cuba-parent-menu-wrapper">';
+    $form['menu']['link']['menu_parent']['#suffix'] = '</div>';
+  }
+}
+
+/**
+ * Ajax callback to update parent menu in menu settings.
+ *
+ * @param array $form
+ * @param FormStateInterface $form_state
+ * @return mixed
+ */
+function _cuba_ct_conference_section_update_parent_menu(array &$form, FormStateInterface $form_state) {
+
+  // Get the term id from the form state of the conference name drop down.
+  $tid = $form_state->getValue('field_cuba_cs_conference_name')[0]['target_id'];
+
+  // Set the default value for the parent menu.
+  $default_value = 'cuba-menu-conferences:taxonomy_menu.menu_link:taxonomy_menu.menu_link.cuba_tax_menu_conferences.' . $tid;
+
+  // Set the value for the parent item.
+  $form['menu']['link']['menu_parent']['#value'] = $default_value;
+
+  // Return the build array for the parent item.
+  return $form['menu']['link']['menu_parent'];
+}
+
+/**
+ * Implements hook_module_implements_alter().
+ *
+ * Ensure that form alter for conference section runs last.
+ */
+function cuba_ct_conference_section_module_implements_alter(&$implementations, $hook) {
+
+  // If the hook is form alter, move conference section to last.
+  if ($hook == 'form_alter') {
+
+    // Move my_module_form_alter() to the end of the list.
+    // \Drupal::moduleHandler()->getImplementations()
+    // iterates through $implementations with a foreach loop which PHP iterates
+    // in the order that the items were added, so to move an item to the end of
+    // the array, we remove it and then add it.
+    $group = $implementations['cuba_ct_conference_section'];
+    unset($implementations['cuba_ct_conference_section']);
+    $implementations['cuba_ct_conference_section'] = $group;
+  }
+}
