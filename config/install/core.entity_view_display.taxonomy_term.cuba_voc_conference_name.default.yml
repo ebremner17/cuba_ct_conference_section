@@ -2,7 +2,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.taxonomy_term.cuba_voc_conference_name.field_cuba_current_conference
     - taxonomy.vocabulary.cuba_voc_conference_name
 id: taxonomy_term.cuba_voc_conference_name.default
 targetEntityType: taxonomy_term
@@ -11,5 +10,4 @@ mode: default
 content: {  }
 hidden:
   description: true
-  field_cuba_current_conference: true
   langcode: true
