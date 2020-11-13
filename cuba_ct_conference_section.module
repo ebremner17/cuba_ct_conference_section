@@ -3,6 +3,15 @@
 use Drupal\Core\Form\FormStateInterface;
 
 /**
+ * Implements hook_preprocess_node().
+ */
+function cuba_ct_conference_section_preprocess_node(&$variables) {
+
+  $variables['base_path'] = base_path();
+}
+
+
+/**
  * Implements hook_form_alter() for \Drupal\node\NodeForm.
  *
  * Update parent item based on conference name selection.
