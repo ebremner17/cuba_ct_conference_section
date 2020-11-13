@@ -10,7 +10,7 @@ use Drupal\Core\Form\FormStateInterface;
 function cuba_ct_conference_section_form_alter(&$form, FormStateInterface $form_state, $form_id) {
 
   // Ensure that we are on a conference section.
-  if ($form_id == 'node_cuba_ct_conference_section_form') {
+  if ($form_id == 'node_cuba_ct_conference_section_form' || $form_id == 'node_cuba_ct_conference_section_edit_form') {
 
     // Add the ajax call to update the parent menu in menu settings.
     $form['field_cuba_cs_conference_name']['widget']['#ajax'] = [
@@ -22,6 +22,43 @@ function cuba_ct_conference_section_form_alter(&$form, FormStateInterface $form_
     // Add the prefix and suffix so that our ajax works.
     $form['menu']['link']['menu_parent']['#prefix'] = '<div id="cuba-parent-menu-wrapper">';
     $form['menu']['link']['menu_parent']['#suffix'] = '</div>';
+  }
+
+  // If we are on the confernce section edit, try and add title and conference defaults.
+  if ($form_id == 'node_cuba_ct_conference_section_edit_form') {
+
+    // If the menu link title is not set, set it to the node title.
+    if ($form['menu']['link']['title']['#default_value'] == '') {
+
+      // Set the menu link title to the node title.
+      $form['menu']['link']['title']['#default_value'] = $form["title"]["widget"][0]["value"]["#default_value"];
+
+      // Step through all of the options for the menu link parent and find the conference specified
+      // in the drop down list of conference name.
+      foreach ($form["menu"]["link"]["menu_parent"]["#options"] as $key => $option) {
+
+        // Explode the key to get the taxonomy name.
+        $tax_key = explode(':', $key);
+
+        // If the last element in the array is not blank, then try and see if
+        // the conference name is the same.
+        if (end($tax_key) !== "") {
+
+          // Explode the key about to get tid, which is last element.
+          $end_key = explode('.', end($tax_key));
+
+          // If the last element is equal to the conference name selected, set parent menu.
+          if (end($end_key) == $form["field_cuba_cs_conference_name"]["widget"]["#default_value"][0]) {
+
+              // Set the menu parent default value.
+            $form["menu"]["link"]["menu_parent"]["#default_value"] = $key;
+
+            // Break out of the loop.
+            break;
+          }
+        }
+      }
+    }
   }
 
 }
